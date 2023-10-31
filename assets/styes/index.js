@@ -44,8 +44,8 @@ const getDisplayValueAsNum = () => {
 }
 
 const setStrAsValue = (valueStr) => {
-  if (valueStr[valueStr.length - 1] ==='.') {
-    displayElement.textContent +='.'
+  if (valueStr[valueStr.length - 1] === '.') {
+    displayElement.textContent += '.'
     return
   }
 
@@ -138,7 +138,7 @@ divisionElement.addEventListener ('click',() => {
   operatorClick('division')
 })
 equalElement.addEventListener ('click',() => {
-  if(valueStrInMemory) {
+  if (valueStrInMemory) {
     setStrAsValue (getResultOperationStr())
     valueStrInMemory = null
     operatorInMemory = null

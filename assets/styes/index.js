@@ -154,7 +154,7 @@ equalElement.addEventListener('click',()=>{
 })
 
 //add event listeners to numbers and decimal
-for (let i=0 i<numberElementArray.length i++){
+for (let i=0; i<numberElementArray.length i++){
     const numberElement = numberElementArray[i]
     numberElement.addEventListener('click', ()=> {
         numberClick(i.toString())

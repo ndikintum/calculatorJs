@@ -45,7 +45,7 @@ const getDisplayValueAsNum = () => {
 }
 
 const setStrAsValue = (valueStr) => {
-  if (valueStr[valueStr.length - 1] = = = '.') {
+  if (valueStr[valueStr.length - 1] = = '.') {
     displayElement.textContent + = '.'
     return
   }

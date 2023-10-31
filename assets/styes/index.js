@@ -46,7 +46,7 @@ const getDisplayValueAsNum = () => {
 
 const setStrAsValue = (valueStr) => {
   if (valueStr[valueStr.length - 1] ==='.') {
-    displayElement.textContent + ='.'
+    displayElement.textContent +='.'
     return
   }
 
@@ -114,7 +114,7 @@ pmElement.addEventListener('click',() => {
   const currentDisplayNum = getDisplayValueAsNum ()
   const currentDisplayStr = getDisplayValueAsStr ()
   
-  if (currentDisplayStr ==='-0') {
+  if (currentDisplayStr === '-0') {
     setStrAsValue('0')
     return
   }

@@ -45,7 +45,7 @@ const getDisplayValueAsNum = () => {
 }
 
 const setStrAsValue = (valueStr) => {
-  if (valueStr[valueStr.length - 1]= = ='.') {
+  if (valueStr[valueStr.length - 1] ==='.') {
     displayElement.textContent + ='.'
     return
   }
@@ -73,17 +73,17 @@ const getResultOperationStr = () => {
   const currentDisplayNum = getDisplayValueAsNum ()
   // const valueNumInMemory = parseFloat(valueStrInMemory)
     let newValueNum
-    if(operatorInMemory = = = 'subtraction') {
+    if(operatorInMemory === 'subtraction') {
       newValueNum = valueStrInMemory - currentDisplayNum
     
     }
-    else if (operatorInMemory = = = 'addition') {
+    else if (operatorInMemory === 'addition') {
         newValueNum = +valueStrInMemory + +currentDisplayNum
     }
-    else if (operatorInMemory = = = 'multiplication') {
+    else if (operatorInMemory === 'multiplication') {
         newValueNum = valueStrInMemory * currentDisplayNum
     }
-    else if (operatorInMemory = = = 'division') {
+    else if (operatorInMemory === 'division') {
         newValueNum = valueStrInMemory / currentDisplayNum
     }
     return newValueNum.toString ()
@@ -114,7 +114,7 @@ pmElement.addEventListener('click',() => {
   const currentDisplayNum = getDisplayValueAsNum ()
   const currentDisplayStr = getDisplayValueAsStr ()
   
-  if (currentDisplayStr = = ='-0') {
+  if (currentDisplayStr ==='-0') {
     setStrAsValue('0')
     return
   }

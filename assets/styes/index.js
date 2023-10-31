@@ -45,111 +45,110 @@ const getDisplayValueAsNum = () => {
 }
 
 const setStrAsValue = (valueStr) => {
-  if (valueStr[valueStr.length - 1]==='.') {
-    displayElement.textContent +='.'
+  if (valueStr[valueStr.length - 1]= = ='.') {
+    displayElement.textContent + ='.'
     return
   }
 
   const [wholeNumberStr, decimalStr] = valueStr.split('.')
   if (decimalStr) {
-    displayElement.textContent = 
-    parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr
+    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr
   }
   else {
-    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString()
+    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString ()
   }
 }
 
 const numberClick = (numStr) => {
-  const currentDisplayStr = getDisplayValueAsStr()
+  const currentDisplayStr = getDisplayValueAsStr ()
   if (currentDisplayStr === '0') {
-    setStrAsValue(numStr)
+    setStrAsValue (numStr)
   }
   else {
-    setStrAsValue(currentDisplayStr + numStr)
+    setStrAsValue (currentDisplayStr + numStr)
   }
 }
 
-const getResultOperationStr = () =>{
-  const currentDisplayNum = getDisplayValueAsNum()
-  const valueNumInMemory = parseFloat(valueStrInMemory)
+const getResultOperationStr = () => {
+  const currentDisplayNum = getDisplayValueAsNum ()
+  // const valueNumInMemory = parseFloat(valueStrInMemory)
     let newValueNum
-    if(operatorInMemory === 'subtraction') {
+    if(operatorInMemory = = = 'subtraction') {
       newValueNum = valueStrInMemory - currentDisplayNum
     
     }
-    else if(operatorInMemory ==='addition') {
+    else if (operatorInMemory = = = 'addition') {
         newValueNum = +valueStrInMemory + +currentDisplayNum
     }
-    else if(operatorInMemory==='multiplication'){
+    else if (operatorInMemory = = = 'multiplication') {
         newValueNum = valueStrInMemory * currentDisplayNum
     }
-    else if(operatorInMemory==='division'){
+    else if (operatorInMemory = = = 'division') {
         newValueNum = valueStrInMemory / currentDisplayNum
     }
-    return newValueNum.toString()
+    return newValueNum.toString ()
 }
 
-const operatorClick = (operation) =>{
-  const currentDisplayStr =getDisplayValueAsStr()
+const operatorClick = (operation) => {
+  const currentDisplayStr =getDisplayValueAsStr ()
 
-  if(!valueStrInMemory){
+  if(!valueStrInMemory) {
     valueStrInMemory = currentDisplayStr
     operatorInMemory = operation
     setStrAsValue('0')
     return
   }
 
-  valueStrInMemory = getResultOperationStr()
+  valueStrInMemory = getResultOperationStr ()
   operatorInMemory = operation
-  setStrAsValue('0')
+  setStrAsValue ('0')
 }
 
 // add event listeners to functions
-acElement.addEventListener('click', () =>{
+acElement.addEventListener('click', () => {
   setStrAsValue('0')
   valueStrInMemory = null
   operatorInMemory = null
 })
-pmElement.addEventListener('click',()=>{
-  const currentDisplayNum = getDisplayValueAsNum()
-  const currentDisplayStr = getDisplayValueAsStr()
+pmElement.addEventListener('click',() => {
+  const currentDisplayNum = getDisplayValueAsNum ()
+  const currentDisplayStr = getDisplayValueAsStr ()
   
-  if (currentDisplayStr==='-0') {
+  if (currentDisplayStr = = ='-0') {
     setStrAsValue('0')
     return
   }
-  if(currentDisplayNum >= 0) {
+  if (currentDisplayNum >= 0) {
     setStrAsValue('-' + currentDisplayStr)
   }
   else {
-    setStrAsValue(currentDisplayStr.substring(1))
+    setStrAsValue (currentDisplayStr.substring (1))
   }
 })
-percentElement.addEventListener('click',() => {
-  const currentDisplayNum = getDisplayValueAsNum()
+percentElement.addEventListener ('click', () => {
+  const currentDisplayNum = getDisplayValueAsNum ()
   const newDisplayNum = currentDisplayNum / 100
-  setStrAsValue(newDisplayNum.toString())
+  setStrAsValue (newDisplayNum.toString ())
   valueStrInMemory = null
   operatorInMemory = null
 })
 
 // add event listeners to operators
-additionElement.addEventListener('click',() => {
-  operatorClick('addition')
+additionElement.addEventListener('click', () => {
+  operatorClick ('addition')
 })
-subtractionElement.addEventListener('click',() => {
-  operatorClick('subtraction')
+subtractionElement.addEventListener('click', () => {
+  operatorClick ('subtraction')
 })
-multiplicationElement.addEventListener('click',() => {
-  operatorClick('multiplication')
+multiplicationElement.addEventListener ('click', () => {
+  operatorClick ('multiplication')
 })
-divisionElement.addEventListener('click',() => {
-  operatorClick('division')
+divisionElement.addEventListener ('click', () => {
+  operatorClick ('division')
 })
-equalElement.addEventListener('click',() =>{
+equalElement.addEventListener ('click', () => {
   if(valueStrInMemory) {
-    setStrAsValue(getResultOperationStr())
+    setStrAsValue (getResultOperationStr ())
     valueStrInMemory = null
     operatorInMemory = null
   }
@@ -158,30 +157,30 @@ equalElement.addEventListener('click',() =>{
 // add event listeners to numbers and decimal
 for (let i=0; i<numberElementArray.length; i++) {
   const numberElement = numberElementArray[i]
-  numberElement.addEventListener('click', ()=> {
-    numberClick(i.toString())
+  numberElement.addEventListener ('click', () => {
+    numberClick (i.toString())
   })
 }
-decimalElement.addEventListener('click', () => {
-  const currentDisplayStr=getDisplayValueAsStr()
-  if (!currentDisplayStr.includes('.')) {
-    setStrAsValue(currentDisplayStr + '.')
+decimalElement.addEventListener ('click', () => {
+  const currentDisplayStr=getDisplayValueAsStr ()
+  if (!currentDisplayStr.includes ('.')) {
+    setStrAsValue (currentDisplayStr + '.')
   }
 })
 
 // set up time
 const updateTime = () => {
-  const currentTime = new Date()
+  const currentTime = new Date ()
 
-  let currentHour =currentTime.getHours()
-  const currentMinute = currentTime.getMinutes()
+  let currentHour =currentTime.getHours ()
+  const currentMinute = currentTime.getMinutes ()
 
-  if(currentHour > 12) {
+  if (currentHour > 12) {
     currentHour -=12
   }
 
-  hourElement.textContent =currentHour.toString()
-  minuteElement.textContent =currentMinute.toString().padStart(2, '0')
+  hourElement.textContent = currentHour.toString ()
+  minuteElement.textContent = currentMinute.toString ().padStart (2, '0')
 }
-setInterval(updateTime, 1000)
-updateTime()
+setInterval (updateTime, 1000)
+updateTime ()

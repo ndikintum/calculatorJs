@@ -27,8 +27,7 @@ const number9Element = document.querySelector('.number-9')
 
 const numberElementArray = [
   number0Element, number1Element, number2Element, number3Element, number4Element,
-  number5Element, number6Element, number7Element, number8Element, number9Element
-]
+  number5Element, number6Element, number7Element, number8Element, number9Element]
 
 // variabkes
 let valueStrInMemory = null
@@ -52,21 +51,17 @@ const setStrAsValue = (valueStr) => {
 
   const [wholeNumberStr, decimalStr] = valueStr.split('.')
   if (decimalStr) {
-    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr
-  }
+    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr}
   else {
-    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString()
-  }
+    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString()}
 }
 
 const numberClick = (numStr) => {
   const currentDisplayStr = getDisplayValueAsStr()
   if (currentDisplayStr === '0') {
-    setStrAsValue(numStr)
-  }
+    setStrAsValue(numStr)}
   else {
-    setStrAsValue(currentDisplayStr + numStr)
-  }
+    setStrAsValue(currentDisplayStr + numStr)}
 }
 
 const getResultOperationStr = () => {
@@ -76,16 +71,13 @@ const getResultOperationStr = () => {
   if(operatorInMemory === 'subtraction') {
     newValueNum = valueStrInMemory - currentDisplayNum  
   }
-    else if (operatorInMemory === 'addition') {
-        newValueNum = +valueStrInMemory + +currentDisplayNum
-    }
-    else if (operatorInMemory === 'multiplication') {
-        newValueNum = valueStrInMemory * currentDisplayNum
-    }
-    else if (operatorInMemory === 'division') {
-        newValueNum = valueStrInMemory / currentDisplayNum
-    }
-    return newValueNum.toString()
+  else if (operatorInMemory === 'addition') {
+    newValueNum = +valueStrInMemory + +currentDisplayNum}
+  else if (operatorInMemory === 'multiplication') {
+    newValueNum = valueStrInMemory * currentDisplayNum}
+  else if (operatorInMemory === 'division') {
+    newValueNum = valueStrInMemory / currentDisplayNum}
+  return newValueNum.toString()
 }
 
 const operatorClick = (operation) => {
@@ -121,10 +113,10 @@ pmElement.addEventListener('click',() => {
     setStrAsValue('-' + currentDisplayStr)
   }
   else {
-    setStrAsValue (currentDisplayStr.substring (1))
+    setStrAsValue(currentDisplayStr.substring(1))
   }
 })
-percentElement.addEventListener ('click',() => {
+percentElement.addEventListener('click',() => {
   const currentDisplayNum = getDisplayValueAsNum()
   const newDisplayNum = currentDisplayNum / 100
   setStrAsValue(newDisplayNum.toString())

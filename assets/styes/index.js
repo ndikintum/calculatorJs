@@ -45,8 +45,8 @@ const getDisplayValueAsNum = () => {
 }
 
 const setStrAsValue = (valueStr) => {
-  if (valueStr[valueStr.length - 1] ==='.') {
-    displayElement.textContent +='.'
+  if (valueStr[valueStr.length - 1] = = = '.') {
+    displayElement.textContent + = '.'
     return
   }
 
@@ -61,7 +61,7 @@ const setStrAsValue = (valueStr) => {
 
 const numberClick = (numStr) => {
   const currentDisplayStr = getDisplayValueAsStr()
-  if (currentDisplayStr === '0') {
+  if (currentDisplayStr = = = '0') {
     setStrAsValue(numStr)
   }
   else {
@@ -72,11 +72,10 @@ const numberClick = (numStr) => {
 const getResultOperationStr = () => {
   const currentDisplayNum = getDisplayValueAsNum()
   // const valueNumInMemory = parseFloat(valueStrInMemory)
-    let newValueNum
-    if(operatorInMemory === 'subtraction') {
-      newValueNum = valueStrInMemory - currentDisplayNum
-    
-    }
+  let newValueNum
+  if(operatorInMemory === 'subtraction') {
+    newValueNum = valueStrInMemory - currentDisplayNum  
+  }
     else if (operatorInMemory === 'addition') {
         newValueNum = +valueStrInMemory + +currentDisplayNum
     }

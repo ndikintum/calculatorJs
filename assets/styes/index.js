@@ -50,7 +50,7 @@ const setStrAsValue = (valueStr) => {
   }
 
   const [wholeNumberStr, decimalStr] = valueStr.split('.')
-  if (decimalStr) {displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr}
+  if (decimalStr) { displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr}
   else {
     displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString()}
 }

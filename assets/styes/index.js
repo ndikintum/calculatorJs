@@ -59,8 +59,10 @@ const setStrAsValue = (valueStr) => {
 
 const numberClick = (numStr) => {
   const currentDisplayStr = getDisplayValueAsStr()
-  if (currentDisplayStr === '0') { setStrAsValue(numStr)
-  } else { setStrAsValue(currentDisplayStr + numStr)
+  if (currentDisplayStr === '0') {
+    setStrAsValue(numStr)
+  } else {
+    setStrAsValue(currentDisplayStr + numStr)
   }
 }
 
@@ -68,10 +70,14 @@ const getResultOperationStr = () => {
   const currentDisplayNum = getDisplayValueAsNum()
   // const valueNumInMemory = parseFloat(valueStrInMemory)
   let newValueNum
-  if (operatorInMemory === 'subtraction') { newValueNum = valueStrInMemory - currentDisplayNum
-  } else if (operatorInMemory === 'addition') { newValueNum = +valueStrInMemory + +currentDisplayNum
-  } else if (operatorInMemory === 'multiplication') { newValueNum = valueStrInMemory * currentDisplayNum
-  } else if (operatorInMemory === 'division') { newValueNum = valueStrInMemory / currentDisplayNum
+  if (operatorInMemory === 'subtraction') {
+    newValueNum = valueStrInMemory - currentDisplayNum
+  } else if (operatorInMemory === 'addition') {
+    newValueNum = +valueStrInMemory + +currentDisplayNum
+  } else if (operatorInMemory === 'multiplication') {
+    newValueNum = valueStrInMemory * currentDisplayNum
+  } else if (operatorInMemory === 'division') {
+    newValueNum = valueStrInMemory / currentDisplayNum
   } return newValueNum.toString()
 }
 
@@ -104,7 +110,8 @@ pmElement.addEventListener('click', () => {
     setStrAsValue('0')
     return
   }
-  if (currentDisplayNum >= 0) { setStrAsValue('-' + currentDisplayStr)
+  if (currentDisplayNum >= 0) {
+    setStrAsValue('-' + currentDisplayStr)
   } else {
     setStrAsValue(currentDisplayStr.substring(1))
   }

@@ -50,15 +50,16 @@ const setStrAsValue = (valueStr) => {
   }
 
   const [wholeNumberStr, decimalStr] = valueStr.split('.')
-  if (decimalStr) { displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr}
-  else {
-    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString()}
+  if (decimalStr) { displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr 
+  } else {
+    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString()
+  }
 }
 
 const numberClick = (numStr) => {
   const currentDisplayStr = getDisplayValueAsStr()
-  if (currentDisplayStr === '0') {setStrAsValue(numStr)}
-  else {setStrAsValue(currentDisplayStr + numStr)}
+  if (currentDisplayStr === '0') { setStrAsValue(numStr) }
+  else { setStrAsValue(currentDisplayStr + numStr)}
 }
 
 const getResultOperationStr = () => {

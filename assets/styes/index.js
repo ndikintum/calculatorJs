@@ -59,24 +59,24 @@ const setStrAsValue = (valueStr) => {
 const numberClick = (numStr) => {
   const currentDisplayStr = getDisplayValueAsStr()
   if (currentDisplayStr === '0') { setStrAsValue(numStr) }
-  else { setStrAsValue(currentDisplayStr + numStr)}
+  else { setStrAsValue(currentDisplayStr + numStr) }
 }
 
 const getResultOperationStr = () => {
   const currentDisplayNum = getDisplayValueAsNum()
   // const valueNumInMemory = parseFloat(valueStrInMemory)
   let newValueNum
-  if(operatorInMemory === 'subtraction') {newValueNum = valueStrInMemory - currentDisplayNum}
-  else if (operatorInMemory === 'addition') {newValueNum = +valueStrInMemory + +currentDisplayNum}
-  else if (operatorInMemory === 'multiplication') {newValueNum = valueStrInMemory * currentDisplayNum}
-  else if (operatorInMemory === 'division') {newValueNum = valueStrInMemory / currentDisplayNum}
+  if(operatorInMemory === 'subtraction') { newValueNum = valueStrInMemory - currentDisplayNum }
+  else if (operatorInMemory === 'addition') { newValueNum = +valueStrInMemory + +currentDisplayNum }
+  else if (operatorInMemory === 'multiplication') { newValueNum = valueStrInMemory * currentDisplayNum }
+  else if (operatorInMemory === 'division') { newValueNum = valueStrInMemory / currentDisplayNum }
   return newValueNum.toString()
 }
 
 const operatorClick = (operation) => {
   const currentDisplayStr = getDisplayValueAsStr()
 
-  if(!valueStrInMemory) {
+  if (!valueStrInMemory) {
     valueStrInMemory = currentDisplayStr
     operatorInMemory = operation
     setStrAsValue('0')
@@ -89,27 +89,25 @@ const operatorClick = (operation) => {
 }
 
 // add event listeners to functions
-acElement.addEventListener('click',() => {
+acElement.addEventListener('click', () => {
   setStrAsValue('0')
   valueStrInMemory = null
   operatorInMemory = null
 })
-pmElement.addEventListener('click',() => {
+pmElement.addEventListener('click', () => {
   const currentDisplayNum = getDisplayValueAsNum()
   const currentDisplayStr = getDisplayValueAsStr()
-  
+
   if (currentDisplayStr === '-0') {
     setStrAsValue('0')
     return
   }
-  if (currentDisplayNum >= 0) {
-    setStrAsValue('-' + currentDisplayStr)
-  }
-  else {
+  if (currentDisplayNum >= 0) { setStrAsValue('-' + currentDisplayStr)
+  } else {
     setStrAsValue(currentDisplayStr.substring(1))
   }
 })
-percentElement.addEventListener('click',() => {
+percentElement.addEventListener('click', () => {
   const currentDisplayNum = getDisplayValueAsNum()
   const newDisplayNum = currentDisplayNum / 100
   setStrAsValue(newDisplayNum.toString())
@@ -118,35 +116,35 @@ percentElement.addEventListener('click',() => {
 })
 
 // add event listeners to operators
-additionElement.addEventListener('click',() => {
+additionElement.addEventListener('click', () => {
   operatorClick('addition')
 })
-subtractionElement.addEventListener('click',() => {
+subtractionElement.addEventListener('click', () => {
   operatorClick('subtraction')
 })
-multiplicationElement.addEventListener ('click',() => {
+multiplicationElement.addEventListener('click', () => {
   operatorClick('multiplication')
 })
-divisionElement.addEventListener ('click',() => {
+divisionElement.addEventListener('click', () => {
   operatorClick('division')
 })
-equalElement.addEventListener ('click',() => {
+equalElement.addEventListener('click', () => {
   if (valueStrInMemory) {
-    setStrAsValue (getResultOperationStr())
+    setStrAsValue(getResultOperationStr())
     valueStrInMemory = null
     operatorInMemory = null
   }
 })
 
 // add event listeners to numbers and decimal
-for (let i=0; i<numberElementArray.length; i++) {
+for (let i = 0; i < numberElementArray.length; i++) {
   const numberElement = numberElementArray[i]
-  numberElement.addEventListener ('click',() => {
+  numberElement.addEventListener ('click', () => {
     numberClick(i.toString())
   })
 }
-decimalElement.addEventListener('click',() => {
-  const currentDisplayStr=getDisplayValueAsStr()
+decimalElement.addEventListener('click', () => {
+  const currentDisplayStr = getDisplayValueAsStr()
   if (!currentDisplayStr.includes('.')) {
     setStrAsValue(currentDisplayStr + '.')
   }
@@ -156,11 +154,11 @@ decimalElement.addEventListener('click',() => {
 const updateTime = () => {
   const currentTime = new Date()
 
-  let currentHour =currentTime.getHours()
+  let currentHour = currentTime.getHours()
   const currentMinute = currentTime.getMinutes()
 
   if (currentHour > 12) {
-    currentHour -=12
+    currentHour -= 12
   }
 
   hourElement.textContent = currentHour.toString()

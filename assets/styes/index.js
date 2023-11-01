@@ -50,7 +50,8 @@ const setStrAsValue = (valueStr) => {
   }
 
   const [wholeNumberStr, decimalStr] = valueStr.split('.')
-  if (decimalStr) { displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr 
+  if (decimalStr) {
+    displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString() + '.' + decimalStr
   } else {
     displayElement.textContent = parseFloat(wholeNumberStr).toLocaleString()
   }
@@ -58,19 +59,20 @@ const setStrAsValue = (valueStr) => {
 
 const numberClick = (numStr) => {
   const currentDisplayStr = getDisplayValueAsStr()
-  if (currentDisplayStr === '0') { setStrAsValue(numStr) }
-  else { setStrAsValue(currentDisplayStr + numStr) }
+  if (currentDisplayStr === '0') { setStrAsValue(numStr)
+  } else { setStrAsValue(currentDisplayStr + numStr)
+  }
 }
 
 const getResultOperationStr = () => {
   const currentDisplayNum = getDisplayValueAsNum()
   // const valueNumInMemory = parseFloat(valueStrInMemory)
   let newValueNum
-  if(operatorInMemory === 'subtraction') { newValueNum = valueStrInMemory - currentDisplayNum }
-  else if (operatorInMemory === 'addition') { newValueNum = +valueStrInMemory + +currentDisplayNum }
-  else if (operatorInMemory === 'multiplication') { newValueNum = valueStrInMemory * currentDisplayNum }
-  else if (operatorInMemory === 'division') { newValueNum = valueStrInMemory / currentDisplayNum }
-  return newValueNum.toString()
+  if (operatorInMemory === 'subtraction') { newValueNum = valueStrInMemory - currentDisplayNum
+  } else if (operatorInMemory === 'addition') { newValueNum = +valueStrInMemory + +currentDisplayNum
+  } else if (operatorInMemory === 'multiplication') { newValueNum = valueStrInMemory * currentDisplayNum
+  } else if (operatorInMemory === 'division') { newValueNum = valueStrInMemory / currentDisplayNum
+  } return newValueNum.toString()
 }
 
 const operatorClick = (operation) => {
@@ -139,7 +141,7 @@ equalElement.addEventListener('click', () => {
 // add event listeners to numbers and decimal
 for (let i = 0; i < numberElementArray.length; i++) {
   const numberElement = numberElementArray[i]
-  numberElement.addEventListener ('click', () => {
+  numberElement.addEventListener('click', () => {
     numberClick(i.toString())
   })
 }
